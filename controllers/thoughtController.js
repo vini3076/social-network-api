@@ -7,6 +7,7 @@ module.exports = {
       const thoughts = await Thought.find();
       res.json(thoughts);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   },
@@ -49,6 +50,7 @@ module.exports = {
         res.status(404).json({ message: 'No thought with that ID' });
       }
 
+      res.json({message: 'Thought Deleted!'});
     } catch (err) {
       res.status(500).json(err);
     }
@@ -91,26 +93,30 @@ module.exports = {
 
       res.json(thought);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
   // Remove reaction
   async removeReaction(req, res) {
     try {
-      const thought = await Thought.findOneAndUpdate(
+      const reaction = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reactions: { reactionId: req.params.reactionId } } },
+        { $pull: { reactions: { reactionId: req.body.reactionId } } },
         { runValidators: true, new: true }
       );
 
-      if (!thought) {
+      console.log(reaction);
+      console.log(req.params)
+      if (!reaction) {
         return res
           .status(404)
-          .json({ message: 'No thought found with that ID :(' });
+          .json({ message: 'No reaction found with that ID :(' });
       }
 
-      res.json(thought);
+      res.json(reaction); 
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   },

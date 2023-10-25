@@ -56,7 +56,7 @@ module.exports = {
   // Update a user
   async updateUser(req, res) {
     try {
-      const User = await User.findOneAndUpdate(
+      const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
         { $set: req.body },
         { runValidators: true, new: true }
@@ -79,7 +79,7 @@ module.exports = {
     try {
       const friend = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $addToSet: { friends: req.body } },
+        { $addToSet: { friends: req.params.friendId } },
         { runValidators: true, new: true }
       );
 
@@ -109,7 +109,7 @@ module.exports = {
           .json({ message: 'No user found with that ID :(' });
       }
 
-      res.json(thought);
+      res.json(friend);
     } catch (err) {
       res.status(500).json(err);
     }

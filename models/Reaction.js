@@ -1,4 +1,4 @@
-const { Schema, models } = require("mongoose");
+const { Schema, Types } = require("mongoose");
 
 function formatDate(date) {
 return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
@@ -28,7 +28,6 @@ const reactionSchema = new Schema(
   },
   {
     toJSON: {
-      virtuals: true,
       getters: true,
     },
     id: false,

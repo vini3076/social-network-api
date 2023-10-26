@@ -20,7 +20,7 @@ For any questions please email me at vinita.navani@gmail.com or visit my Github 
 
 [GET for Users and Thoughts](https://watch.screencastify.com/v/FzYeMzQTH4n20U9q27Hx)
 [POST, PUT and Delete for Users and Thoughts](https://watch.screencastify.com/v/Cjg8tJgoP8p3xDvkm1iD)
-[POST and Delete for Friends and Reactions]()
+[POST and Delete for Friends and Reactions](https://watch.screencastify.com/v/fGzfxwTiLrpVRNLnCG6w)
  
 [Github repository](https://github.com/vini3076/social-network-api)
 
